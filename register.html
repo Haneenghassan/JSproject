@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register-login page</title>
+    <script src="https://kit.fontawesome.com/f9c0f3458b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    html,
+    body {
+        display: grid;
+        height: 100%;
+        place-items: center;
+
+        /* background: -webkit-linear-gradient(90deg, #075F6F, transparent) #93d5e1; */
+
+    }
+
+    .container {
+        max-width: 390px;
+        background-color: #fff;
+        box-shadow: 0px 15px 20px rgb(0, 0, 0, 0.1);
+        padding: 30px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .container .title_text {
+        display: flex;
+        width: 200%;
+    }
+
+    .container .title_text .title {
+        width: 50%;
+        font-size: 29px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .container .form-container {
+        width: 100%;
+        overflow: hidden;
+
+    }
+
+    .form-container .slide-controls {
+        position: relative;
+        display: flex;
+        height: 50px;
+        width: 100%;
+        margin: 30px 0 10px 0;
+        justify-content: space-between;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .slide-controls .slide {
+        height: 100%;
+        width: 100%;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 48px;
+        cursor: pointer;
+        z-index: 1;
+        color: #fff;
+    }
+
+
+    .slide-controls .signup {
+        color: black;
+    }
+
+    .slide-controls .swip-button {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        left: 0;
+        z-index: 0;
+        border-radius: 5px;
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        background: -webkit-linear-gradient(90deg, #075F6F, transparent) #93d5e1;
+        ;
+
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    #signup:checked~.swip-button {
+        left: 50%;
+    }
+
+    #signup:checked~.signup {
+        color: #fff;
+    }
+
+    #signup:checked~.login {
+        color: black;
+    }
+
+    .form-container .form-inner {
+        display: flex;
+        width: 200%;
+
+    }
+
+    .form-container .form-inner form {
+        width: 50%;
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    }
+
+    .form-inner form .field {
+        height: 50px;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .form-inner form .field input {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        padding-left: 15px;
+        font-size: 17px;
+        border-radius: 5px;
+        border: 1px solid lightgray;
+        border-bottom-width: 2px;
+    }
+
+    .form-inner form .field input:focus {
+        border-color: #075F6F;
+    }
+
+    .signup-link {
+        margin-top: 2%;
+        text-align: center;
+    }
+
+    .form-inner form .signup-link a {
+        color: #FFAF6F;
+        text-decoration: none;
+    }
+
+    .form-inner form .signup-link a:hover {
+        text-decoration: underline;
+    }
+
+    #submit {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        padding-left: 15px;
+        font-size: 20px;
+        font-weight: 500;
+        border-radius: 5px;
+        border: 1px solid lightgray;
+        border-bottom-width: 2px;
+        background: linear-gradient(90deg, #075F6F, transparent) #93d5e1;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    #using {
+        text-align: center;
+
+    }
+
+    #icons {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        margin: 4% 23%;
+
+    }
+
+    .fa-google {
+        font-size: 30px;
+        color: #075F6F;
+    }
+
+    .fa-github {
+        font-size: 30px;
+        color: #075F6F;
+    }
+
+    .fa-facebook {
+        font-size: 30px;
+        color: #075F6F;
+    }
+
+    .fa-square-twitter {
+        font-size: 30px;
+        color: #075F6F;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="title_text">
+            <div class="title login">Log In</div>
+            <div class="title signup">Register</div>
+        </div>
+        <!-- header -->
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slider" id="login" checked>
+                <input type="radio" name="slider" id="signup">
+                <label for="login" class="slide login">Login</label>
+                <label for="signup" class="slide signup">Register</label>
+                <div class="swip-button"></div>
+            </div>
+            <div class="form-inner">
+                <!-- login formmat -->
+                <form action="#" class="login">
+                    <div class="field">
+                        <input type="text" placeholder="Email" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="field">
+                        <button id="submit">login</button>
+                    </div>
+                    <div class="signup-link">Not a member?<a href="#">Signup By Email</a></div>
+                    <div id="using">OR Using</div>
+                    <div id="icons">
+                        <i class="fa-brands fa-google"></i>
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-square-twitter"></i>
+                    </div>
+
+                </form>
+
+                <!-- sign up format -->
+                <form action="#" class="signup">
+                    <div class="field">
+                        <input type="text" placeholder="First Name" id="firstname" onchange="regex()"  required>
+                        <span id="errorF"></span>
+                    </div>
+                    <div class="field">
+                        <input type="text" placeholder="Last Name" id="lastname" onchange="regex()" required>
+                        <span id="errorL"></span>
+                    </div>
+                    <div class="field">
+                        <input type="text" placeholder="Email" id="email" onchange="regex()" required>
+                        <span id="errorE"></span>
+                    </div>
+                    <div class="field">
+                        <input type="text" placeholder="Confirm Email" id="ConfirmEmail" onchange="reg()" onkeydown="regc()" required>
+                        <span id="errorCE"></span>
+                    </div>
+                    <div class="field">
+                        <input type="text" placeholder="Mobile Number"  id="Mobile" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Password" id="password" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Confirm Password" id="ConfirmPassword" required>
+                    </div>
+                    <div class="field">
+                        <button type="submit" id="submit" onclick="data()">Register</button>
+                    </div>
+
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="register.js"></script>
+
+
+
+</html>
