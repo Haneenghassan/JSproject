@@ -259,21 +259,24 @@
                         <span id="errorL"></span>
                     </div>
                     <div class="field">
-                        <input type="text" placeholder="Email" id="email" onchange="regex()" required>
+                        <input type="text" placeholder="Email" id="email" onchange="regE()" required>
                         <span id="errorE"></span>
                     </div>
                     <div class="field">
-                        <input type="text" placeholder="Confirm Email" id="ConfirmEmail" onchange="reg()" onkeydown="regc()" required>
+                        <input type="text" placeholder="Confirm Email" id="ConfirmEmail" onchange="regc()" required>
                         <span id="errorCE"></span>
                     </div>
                     <div class="field">
-                        <input type="text" placeholder="Mobile Number"  id="Mobile" required>
+                        <input type="text" placeholder="Mobile Number"  id="Mobile" onchange="regM()" required>
+                        <span id="errorM"></span>
                     </div>
                     <div class="field">
-                        <input type="password" placeholder="Password" id="password" required>
+                        <input type="password" placeholder="Password" id="password" onchange="regp()" required>
+                        <span id="errorP"></span>
                     </div>
                     <div class="field">
-                        <input type="password" placeholder="Confirm Password" id="ConfirmPassword" required>
+                        <input type="password" placeholder="Confirm Password"  id="ConfirmPassword" onchange="regcp()" required>
+                        <span id="errorCP"></span>
                     </div>
                     <div class="field">
                         <button type="submit" id="submit" onclick="data()">Register</button>

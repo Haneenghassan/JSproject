@@ -36,7 +36,7 @@ var CP=document.getElementById("ConfirmPassword");
 function regex(){
     event.preventDefault();
 let regname =/\d/;
-let y=(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+
 try{
 if(regname.test(F.value)) throw 'must not contain Numbers'
 
@@ -52,36 +52,98 @@ catch(er){
     document.getElementById('errorL').innerHTML=er
 };
  
-        if(E.value.match(y)){
-            return true
-        }
-     else {
-          return  document.getElementById('errorE').innerHTML='Email not valid'
- } ;
+       
 }
 
-function reg(){
-   
-    
-    regconfirm=(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
-    if(CE.value.match(regconfirm)){
+function regE() {
+    let y=(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+    if(E.value.match(y)){
         return true
     }
  else {
-      return  document.getElementById('errorCE').innerHTML='Email not valid'
-    }
-
-
+      return  document.getElementById('errorE').innerHTML='Email not valid'
+} ;
+    
 }
 
+// function reg(){
+   
+    
+//     regconfirm=(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+//     if(CE.value.match(regconfirm)){
+//         return true
+//     }
+//  else {
+//       return  document.getElementById('errorCE').innerHTML='Email not valid'
+//     }
+
+
+// }
+
 function regc(){
-    if(E.valu ==CE.value){
+    if(E.value == CE.value){
         return true
     }
     else{
         return document.getElementById('errorCE').innerHTML='Email not Confirmed'
     }
+    
 }
+
+function regM() {
+  let  reg=/^\d{10}$/
+    if (!isNaN(M.value) && (M.value.match(reg) )){
+        return true;
+
+    }
+
+    else{return document.getElementById('errorM').innerHTML='mobile Number invalid'
+}
+}
+
+function regp(){
+   
+        let isNonWhiteSpace = /^\S*$/;
+        if (!isNonWhiteSpace.test(P.value)) {
+          return document.getElementById('errorP').innerHTML= "Password must not contain Whitespaces.";
+        }
+      
+        let isContainsUppercase = /^(?=.*[A-Z]).*$/;
+        if (!isContainsUppercase.test(P.value)) {
+          return document.getElementById('errorP').innerHTML= "Password must have at least one Uppercase Character.";
+        }
+      
+        let isContainsLowercase = /^(?=.*[a-z]).*$/;
+        if (!isContainsLowercase.test(P.value)) {
+          return document.getElementById('errorP').innerHTML="Password must have at least one Lowercase Character.";
+        }
+      
+        let isContainsNumber = /^(?=.*[0-9]).*$/;
+        if (!isContainsNumber.test(P.value)) {
+          return document.getElementById('errorP').innerHTML="Password must contain at least one Digit.";
+        }
+      
+      let isContainsSymbol =
+          /^(?=.*[~`!@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).*$/;
+        if (!isContainsSymbol.test(P.value)) {
+          return document.getElementById('errorP').innerHTML="Password must contain at least one Special Symbol.";
+        }
+      
+        let isValidLength = /^.{8,16}$/;
+        if (!isValidLength.test(P.value)) {
+          return document.getElementById('errorP').innerHTML="Password must be 10-16 Characters Long.";
+        }
+}
+
+function regcp(){
+    if(P.value ==CP.value){
+        return true
+    }
+    else{
+        return document.getElementById('errorCP').innerHTML='Password not Confirmed'
+    }
+}
+
 
 
 
@@ -95,31 +157,16 @@ function data() {
 
     console.log(F.value,"data")
 
-  
-
-    // let RegEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-   
-    //     try{
-    //     if(RegEmail.test(E.value)) throw 'must contain @'
-    //     if(RegEmail.test(CE.value)) throw 'must  contain @'
-        
-    //     }
-    //     catch (er){
-    //         document.getElementById('errorE').innerHTML=er
-    //         document.getElementById('errorCE').innerHTML=er
-    //     }  
-
-
     
-//     let users={"firstName":F.value,"lastName":L.value,"Email":E.value,"confirmEmail":CE.value,"mobile":M.value,"Password":P.value,"confirmPassword":CP.value};
+    let users={"firstName":F.value,"lastName":L.value,"Email":E.value,"confirmEmail":CE.value,"mobile":M.value,"Password":P.value,"confirmPassword":CP.value};
    
-//     x.push(users);
+    x.push(users);
 
-// let data=JSON.stringify(x);
+let data=JSON.stringify(x);
 
 
 
-//     localStorage.setItem( 'data',data);
+    localStorage.setItem( 'data',data);
 
 
    
