@@ -225,17 +225,17 @@
                 <label for="signup" class="slide signup">Register</label>
                 <div class="swip-button"></div>
             </div>
-            <div class="form-inner">
+            <div class="form-inner" id="loog">
                 <!-- login formmat -->
-                <form action="#" class="login">
+                <form action="#"  class="login">
                     <div class="field">
-                        <input type="text" placeholder="Email" required>
+                        <input type="text" placeholder="Email" id="inputemail" required>
                     </div>
                     <div class="field">
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" placeholder="Password" id="inputpassword" required>
                     </div>
                     <div class="field">
-                        <button id="submit">login</button>
+                        <button id="submit" id="submit1" onclick="login()">login</button>
                     </div>
                     <div class="signup-link">Not a member?<a href="#">Signup By Email</a></div>
                     <div id="using">OR Using</div>
@@ -249,13 +249,13 @@
                 </form>
 
                 <!-- sign up format -->
-                <form action="#" class="signup">
+                <form action="" class="signup">
                     <div class="field">
                         <input type="text" placeholder="First Name" id="firstname" onchange="regex()"  required>
                         <span id="errorF"></span>
                     </div>
                     <div class="field">
-                        <input type="text" placeholder="Last Name" id="lastname" onchange="regex()" required>
+                        <input type="text" placeholder="Last Name" id="lastname" onchange="regexl()" required>
                         <span id="errorL"></span>
                     </div>
                     <div class="field">
@@ -280,6 +280,7 @@
                     </div>
                     <div class="field">
                         <button type="submit" id="submit" onclick="data()">Register</button>
+                        <span id="psubmit" ></span>
                     </div>
 
                 
