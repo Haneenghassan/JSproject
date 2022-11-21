@@ -5,7 +5,7 @@ var flag3 = false
 var flag4 = false
 var flag5 = false
 var flag6 = false
-var flag7 = false
+var flag7 = true
 
 const loginForm = document.querySelector("form.login");
 const signupForm = document.querySelector("form.signup");
@@ -138,29 +138,47 @@ function regcp() {
 
  x = JSON.parse(localStorage.getItem('users')) ||[];
 
-function data() {
-    event.preventDefault();
+function data(event) {
+    console.log(x,'hi')
+    x.forEach(function(ele){
+        console.log(ele.Email,'bbbbbbbb')
+        console.log(E.value,'aaaaaa')
+        if (ele.Email == E.value){
+            console.log('aaaaaa')
+            flag7 = false
+        }
+    })
+    
     console.log(F.value,"First name");
     console.log(L.value,"First name");
     console.log(E.value,"First name");
     console.log(CE.value,"First name");
-   
+    console.log(flag7)
+
+    if(!(flag7)){
+
+         document.getElementById('errorCP').innerHTML = 'user exist'
+     }
 
 
-    if (flag1 && flag2 && flag3 && flag4 && flag5 && flag6) {
+    if (flag1 && flag2 && flag3 && flag4 && flag5 && flag6 && flag7) {
 
         let user = { "firstName": F.value, "lastName": L.value, "Email": E.value, "confirmEmail": CE.value, "mobile": M.value, "Password": P.value, "confirmPassword": CP.value };
         x.push(user);
-        // console.log('hi')
+     
 
         let data = JSON.stringify(x);
 
-
-
         localStorage.setItem('users', data);
-window.location.href='register.html'
-    }
+
+      
+        window.location.href='register.html'
+ }
+
+
 }
+
+
 
 
 
@@ -183,7 +201,7 @@ function login() {
 
         }
         else {
-            return console.log(`soory`)
+            return document.getElementById('massagerror').innerHTML = 'Email Or Password incorrect'
         }
     })
 

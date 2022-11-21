@@ -224,6 +224,11 @@
         font-size: 30px;
         color: #075F6F;
     }
+
+    .error {font-size: 15px;
+        color:red
+
+    }
 </style>
 
 <body>
@@ -249,6 +254,7 @@
                     </div>
                     <div class="field">
                         <input type="password" placeholder="Password" id="inputpassword" required>
+                        <span id="massagerror" class="error"></span>
                     </div>
                     <div class="field">
                         <button id="submit1" onclick="login()">login</button>
@@ -268,35 +274,35 @@
                 <form action="" class="signup" onsubmit="return false">
                     <div class="field">
                         <input type="text" placeholder="First Name" id="firstname" onchange="regex()"  required>
-                        <span id="errorF"></span>
+                        <span id="errorF" class="error"></span>
                     </div>
                     <div class="field">
                         <input type="text" placeholder="Last Name" id="lastname" onchange="regexl()" required>
-                        <span id="errorL"></span>
+                        <span id="errorL" class="error"></span>
                     </div>
                     <div class="field">
                         <input type="text" placeholder="Email" id="email" onchange="regE()" required>
-                        <span id="errorE"></span>
+                        <span id="errorE" class="error"></span>
                     </div>
                     <div class="field">
                         <input type="text" placeholder="Confirm Email" id="ConfirmEmail" onchange="regc()" required>
-                        <span id="errorCE"></span>
+                        <span id="errorCE" class="error"></span>
                     </div>
                     <div class="field">
                         <input type="text" placeholder="Mobile Number"  id="Mobile" onchange="regM()" required>
-                        <span id="errorM"></span>
+                        <span id="errorM" class="error"></span>
                     </div>
                     <div class="field">
                         <input type="password" placeholder="Password" id="password" onchange="regp()" required>
-                        <span id="errorP"></span>
+                        <span id="errorP" class="error"></span>
                     </div>
                     <div class="field">
                         <input type="password" placeholder="Confirm Password"  id="ConfirmPassword" onchange="regcp()" required>
-                        <span id="errorCP"></span>
+                        <span id="errorCP" class="error"></span>
                     </div>
                     <div class="field">
                         <button type="submit" id="submit" onclick="data()">Register</button>
-                        <span id="psubmit" ></span>
+                        <span id="psubmit" class="error"></span>
                     </div>
 
                 
