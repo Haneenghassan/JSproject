@@ -1,3 +1,4 @@
+// localStorage.clear()
 var flag1 = false
 var flag2 = false
 var flag3 = false
@@ -41,8 +42,10 @@ var CP = document.getElementById("ConfirmPassword");
 
 
 let regname = /^[A-Za-z]+$/;
-function regex() {
-    event.preventDefault();
+function regex(
+    
+) {
+   
 
     if (F.value.match(regname)) {
         flag1 = true
@@ -54,7 +57,7 @@ function regex() {
 }
 
 function regexl() {
-    event.preventDefault();
+    
 
     if (L.value.match(regname)) {
         flag2 = true
@@ -137,21 +140,18 @@ function regcp() {
 
 function data() {
     event.preventDefault();
-
-    console.log(F.value, "data")
-    console.log(flag1)
-    console.log(flag2)
-    console.log(flag3)
-    console.log(flag4)
-    console.log(flag5)
-    console.log(flag6)
+    console.log(F.value,"First name");
+    console.log(L.value,"First name");
+    console.log(E.value,"First name");
+    console.log(CE.value,"First name");
+   
 
 
     if (flag1 && flag2 && flag3 && flag4 && flag5 && flag6) {
 
         let user = { "firstName": F.value, "lastName": L.value, "Email": E.value, "confirmEmail": CE.value, "mobile": M.value, "Password": P.value, "confirmPassword": CP.value };
         x.push(user);
-        console.log('hi')
+        // console.log('hi')
 
         let data = JSON.stringify(x);
 
@@ -161,21 +161,25 @@ function data() {
 window.location.href='register.html'
     }
 }
-newdata = x.map(data)
+
+
 
 
 
 
 
 function login() {
-    event.preventDefault();
+
+    // var newdata = x.map(data)
     var inputemail = document.getElementById("inputemail").value;
     var inputpassword = document.getElementById("inputpassword").value;
-    let arr = JSON.parse(localStorage.getItem('data')) || [];
+    let arr = JSON.parse(localStorage.getItem('users')) || [];
 
     arr.map(e => {
         if (e.Email == inputemail && e.Password == inputpassword) {
             console.log(`Welcome `)
+
+            localStorage.setItem('currentuser',JSON.stringify(e))
 
         }
         else {
@@ -184,6 +188,11 @@ function login() {
     })
 
 }
+
+
+
+
+
 
 
 
